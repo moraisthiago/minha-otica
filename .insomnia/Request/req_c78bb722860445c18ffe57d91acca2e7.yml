@@ -1,0 +1,26 @@
+_id: req_c78bb722860445c18ffe57d91acca2e7
+type: Request
+parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
+modified: 1666790602089
+created: 1666790599877
+url: localhost:8080/armacao
+name: DELETE BY ID - Armacao
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: basic
+  useISO88591: false
+  disabled: false
+  username: admin@email.com
+  password: "12345"
+metaSortKey: -1666790070815.25
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

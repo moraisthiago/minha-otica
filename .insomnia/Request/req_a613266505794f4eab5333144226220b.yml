@@ -1,0 +1,26 @@
+_id: req_a613266505794f4eab5333144226220b
+type: Request
+parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
+modified: 1666740838074
+created: 1665954492237
+url: localhost:8080/otica/e2230bd9-4c9c-4f14-a775-89f51f7b0da9
+name: GET BY ID- Otica
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: basic
+  useISO88591: false
+  disabled: false
+  username: admin@email.com
+  password: "12345"
+metaSortKey: -1665954385529
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

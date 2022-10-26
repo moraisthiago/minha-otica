@@ -1,0 +1,35 @@
+_id: req_fac7c71bedc84f4cad4d5e862067bbf0
+type: Request
+parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
+modified: 1666791163296
+created: 1666790534636
+url: localhost:8080/lente
+name: POST - Lente
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"type" : "",
+    	"value" : "",
+    	"laboratory": ""
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication:
+  type: basic
+  useISO88591: false
+  disabled: false
+  username: admin@email.com
+  password: "12345"
+metaSortKey: -1666790070771.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,26 @@
+_id: req_9a5262ee84cb41c48135619a8c528eda
+type: Request
+parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
+modified: 1666790477873
+created: 1666790474454
+url: localhost:8080/consulta
+name: DELETE BY ID - Consulta
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: basic
+  useISO88591: false
+  disabled: false
+  username: admin@email.com
+  password: "12345"
+metaSortKey: -1666790070715.25
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

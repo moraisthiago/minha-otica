@@ -1,0 +1,26 @@
+_id: req_468ed125f8e5481887bd564e61b64456
+type: Request
+parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
+modified: 1666790138243
+created: 1666790138243
+url: localhost:8080/cliente
+name: GET BY ID - Cliente
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: basic
+  useISO88591: false
+  disabled: false
+  username: admin@email.com
+  password: "12345"
+metaSortKey: -1666713242201.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
