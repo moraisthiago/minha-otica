@@ -1,7 +1,7 @@
 _id: req_fde75a493420407dabbc028ab0f1efdb
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1666790837664
+modified: 1667351981136
 created: 1666790149707
 url: localhost:8080/cliente
 name: POST - Cliente
@@ -12,6 +12,7 @@ body:
   text: |-
     {
     	"name" : "",
+    	"birthDate" : "",
     	"cpf" : "",
     	"phone" : ""
     }
@@ -25,7 +26,7 @@ authentication:
   disabled: false
   username: admin@email.com
   password: "12345"
-metaSortKey: -1666674827960.25
+metaSortKey: -1666694035080.875
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

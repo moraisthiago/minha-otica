@@ -1,9 +1,9 @@
 _id: req_2b0e9089848e4e64b7e93e031d23d7fa
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1666790648736
+modified: 1667349703646
 created: 1665973547642
-url: localhost:8080/otica/cb83de28-cf8f-4f15-8145-7bb7e404ff8b
+url: localhost:8080/otica/{id}
 name: DELETE BY ID - Otica
 description: ""
 method: DELETE
@@ -20,7 +20,7 @@ authentication:
   disabled: false
   username: admin@email.com
   password: "12345"
-metaSortKey: -1665954385475.875
+metaSortKey: -1665954385477.0469
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

@@ -1,9 +1,9 @@
 _id: req_9a5262ee84cb41c48135619a8c528eda
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1666790477873
+modified: 1667350609820
 created: 1666790474454
-url: localhost:8080/consulta
+url: localhost:8080/consulta/{id}
 name: DELETE BY ID - Consulta
 description: ""
 method: DELETE

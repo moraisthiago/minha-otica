@@ -1,9 +1,9 @@
 _id: req_c78bb722860445c18ffe57d91acca2e7
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1666790602089
+modified: 1667351139816
 created: 1666790599877
-url: localhost:8080/armacao
+url: localhost:8080/armacao/{id}
 name: DELETE BY ID - Armacao
 description: ""
 method: DELETE

@@ -1,9 +1,9 @@
 _id: req_468ed125f8e5481887bd564e61b64456
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1666790138243
+modified: 1667349791632
 created: 1666790138243
-url: localhost:8080/cliente
+url: localhost:8080/cliente/{id}
 name: GET BY ID - Cliente
 description: ""
 method: GET

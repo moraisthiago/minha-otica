@@ -1,9 +1,9 @@
 _id: req_a613266505794f4eab5333144226220b
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1666740838074
+modified: 1667349744824
 created: 1665954492237
-url: localhost:8080/otica/e2230bd9-4c9c-4f14-a775-89f51f7b0da9
+url: localhost:8080/otica/{id}
 name: GET BY ID- Otica
 description: ""
 method: GET
