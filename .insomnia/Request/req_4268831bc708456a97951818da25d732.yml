@@ -1,10 +1,10 @@
-_id: req_d4266c305d3a40aca431f238374e0a06
+_id: req_4268831bc708456a97951818da25d732
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1667390541691
-created: 1666790304365
-url: localhost:8080/endereco
-name: GET - Endereco
+modified: 1667390944448
+created: 1667390097639
+url: localhost:8080/gerente/{idGerente}/enderecos
+name: GET Enderecos - Gerente
 description: ""
 method: GET
 body: {}
@@ -16,7 +16,7 @@ authentication:
   disabled: false
   username: admin@email.com
   password: "12345"
-metaSortKey: -1666305003209.3125
+metaSortKey: -1666790070687.9062
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

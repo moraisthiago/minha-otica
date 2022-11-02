@@ -1,7 +1,7 @@
 _id: req_4fca295ff3ab4b079578b0d1760ba409
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1667354227168
+modified: 1667390976505
 created: 1667353742776
 url: localhost:8080/funcionario/{id}
 name: GET BY ID - Funcionario
@@ -16,7 +16,7 @@ authentication:
   disabled: false
   username: admin@email.com
   password: "12345"
-metaSortKey: -1667352719005.5
+metaSortKey: -1666790070703.5312
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
