@@ -1,0 +1,36 @@
+_id: req_b5332464687c4fbe9eddb87d85fb68b4
+type: Request
+parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
+modified: 1667351556531
+created: 1667314590890
+url: localhost:8080/cliente/{id}
+name: PUT - Cliente
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name" : "",
+    	"birthDate" : "",
+    	"cpf" : "",
+    	"phone" : ""
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication:
+  type: basic
+  useISO88591: false
+  disabled: false
+  username: admin@email.com
+  password: "12345"
+metaSortKey: -1666665224399.9375
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
