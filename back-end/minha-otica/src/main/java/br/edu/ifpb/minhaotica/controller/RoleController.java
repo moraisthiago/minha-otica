@@ -15,41 +15,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpb.minhaotica.dto.UserDTO;
-import br.edu.ifpb.minhaotica.model.User;
-import br.edu.ifpb.minhaotica.service.UserService;
+import br.edu.ifpb.minhaotica.dto.RoleDTO;
+import br.edu.ifpb.minhaotica.model.Role;
+import br.edu.ifpb.minhaotica.service.RoleService;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/role")
+public class RoleController {
 
     @Autowired
-    private UserService _userService;
+    private RoleService _roleService;
 
     @GetMapping
-    private List<User> findAll() {
-        return _userService.findAll();
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<User> findById(@PathVariable UUID id) {
-        return _userService.findById(id);
+    private List<Role> findAll() {
+        return _roleService.findAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public User save(@RequestBody UserDTO userDTO) {
-        return _userService.save(userDTO);
-    }
-
-    @PostMapping("/{idUser}/{idRole}")
-    public ResponseEntity<User> saveRoleUser(@PathVariable(value = "idUser") UUID idUser,
-            @PathVariable(value = "idRole") UUID idRole) {
-        return _userService.saveRoleUser(idUser, idRole);
+    public Role save(@RequestBody RoleDTO roleDTO) {
+        return _roleService.save(roleDTO);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable UUID id) {
-        return _userService.delete(id);
+        return _roleService.delete(id);
     }
 }

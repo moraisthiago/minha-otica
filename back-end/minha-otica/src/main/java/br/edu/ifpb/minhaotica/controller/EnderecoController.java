@@ -10,46 +10,46 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpb.minhaotica.dto.UserDTO;
-import br.edu.ifpb.minhaotica.model.User;
-import br.edu.ifpb.minhaotica.service.UserService;
+import br.edu.ifpb.minhaotica.dto.EnderecoDTO;
+import br.edu.ifpb.minhaotica.model.Endereco;
+import br.edu.ifpb.minhaotica.service.EnderecoService;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/endereco")
+public class EnderecoController {
 
     @Autowired
-    private UserService _userService;
+    private EnderecoService _enderecoService;
 
     @GetMapping
-    private List<User> findAll() {
-        return _userService.findAll();
+    private List<Endereco> findAll() {
+        return _enderecoService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> findById(@PathVariable UUID id) {
-        return _userService.findById(id);
+    public ResponseEntity<Endereco> findById(@PathVariable UUID id) {
+        return _enderecoService.findById(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public User save(@RequestBody UserDTO userDTO) {
-        return _userService.save(userDTO);
+    public ResponseEntity<Endereco> save(@RequestBody EnderecoDTO enderecoDTO) {
+        return _enderecoService.save(enderecoDTO);
     }
 
-    @PostMapping("/{idUser}/{idRole}")
-    public ResponseEntity<User> saveRoleUser(@PathVariable(value = "idUser") UUID idUser,
-            @PathVariable(value = "idRole") UUID idRole) {
-        return _userService.saveRoleUser(idUser, idRole);
+    @PutMapping("/{id}")
+    public ResponseEntity<Endereco> update(@PathVariable UUID id, @RequestBody EnderecoDTO newEnderecoDTO) {
+        return _enderecoService.update(id, newEnderecoDTO);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable UUID id) {
-        return _userService.delete(id);
+        return _enderecoService.delete(id);
     }
 }

@@ -15,7 +15,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifpb.minhaotica.dto.UserDTO;
+import br.edu.ifpb.minhaotica.model.Role;
 import br.edu.ifpb.minhaotica.model.User;
+import br.edu.ifpb.minhaotica.repository.RoleRepository;
 import br.edu.ifpb.minhaotica.repository.UserRepository;
 
 @Service
@@ -24,6 +26,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository _userRepository;
+
+    @Autowired
+    private RoleRepository _roleRepository;
 
     public List<User> findAll() {
         return _userRepository.findAll();
@@ -46,6 +51,21 @@ public class UserService implements UserDetailsService {
         newUser.setPassword(userDTO.getPassword());
 
         return _userRepository.save(newUser);
+    }
+
+    public ResponseEntity<User> saveRoleUser(UUID idUser, UUID idRole) {
+        Optional<Role> roleExistente = _roleRepository.findById(idRole);
+        Optional<User> userExistente = _userRepository.findById(idUser);
+        if (roleExistente.isPresent() && userExistente.isPresent()) {
+            userExistente.get().getRoles().add(roleExistente.get());
+
+            _userRepository.save(userExistente.get());
+
+            return new ResponseEntity<User>(userExistente.get(), HttpStatus.OK);
+
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     public ResponseEntity<User> update(UUID id, UserDTO newUserDTO) {

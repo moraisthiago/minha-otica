@@ -15,7 +15,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -40,15 +39,12 @@ public class User implements UserDetails {
     private UUID id;
 
     @Column(name = "email_user", unique = true)
-    @Size(min = 5, max = 100, message = "Invalid size! Enter minimum 5 and maximum 100 characters") // max=50,100 ou 255
-    @NotEmpty
     @NotNull
     @Email
     private String email;
 
     @Column(name = "password_user")
     @Size(min = 8, max = 100, message = "Invalid size! Enter minimum 8 and maximum 100 characters")
-    @NotEmpty
     @NotNull
     @JsonIgnore
     private String password;
