@@ -43,7 +43,7 @@ public class Pessoa implements Serializable {
 
     @Column(name = "birth_date_person")
     @NotNull(message = "Birth date may not be null")
-    @JsonFormat(pattern = "dd/MM/yyyy") // @JsonFormat(pattern="dd/MM/yyyy HH:mm:ss") LocalDateTime
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate birthDate;
 
     @Column(name = "cpf_person", unique = true)

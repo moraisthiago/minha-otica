@@ -11,8 +11,10 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ifpb.minhaotica.dto.ClienteDTO;
 import br.edu.ifpb.minhaotica.model.Cliente;
+import br.edu.ifpb.minhaotica.model.Consulta;
 import br.edu.ifpb.minhaotica.model.Endereco;
 import br.edu.ifpb.minhaotica.repository.ClienteRepository;
+import br.edu.ifpb.minhaotica.repository.ConsultaRepository;
 import br.edu.ifpb.minhaotica.repository.EnderecoRepository;
 
 @Service
@@ -23,6 +25,9 @@ public class ClienteService {
 
     @Autowired
     private EnderecoRepository _enderecoRepository;
+
+    @Autowired
+    private ConsultaRepository _consultaRepository;
 
     public List<Cliente> findAll() {
         return _clienteRepository.findAll();
@@ -39,8 +44,12 @@ public class ClienteService {
         }
     }
 
-    public List<Endereco> findByClienteId(UUID idPerson) {
+    public List<Endereco> findByEnderecos(UUID idPerson) {
         return _enderecoRepository.findByPersonId(idPerson);
+    }
+
+    public List<Consulta> finByConsultas(UUID idPerson) {
+        return _consultaRepository.findByPersonId(idPerson);
     }
 
     public Cliente save(ClienteDTO clienteDTO) {

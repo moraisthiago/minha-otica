@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifpb.minhaotica.dto.ClienteDTO;
 import br.edu.ifpb.minhaotica.model.Cliente;
+import br.edu.ifpb.minhaotica.model.Consulta;
 import br.edu.ifpb.minhaotica.model.Endereco;
 import br.edu.ifpb.minhaotica.service.ClienteService;
 
@@ -39,8 +40,13 @@ public class ClienteController {
     }
 
     @GetMapping("{idCliente}/enderecos")
-    public List<Endereco> findByClienteId(@PathVariable UUID idCliente) {
-        return _clienteService.findByClienteId(idCliente);
+    public List<Endereco> findByEnderecos(@PathVariable UUID idCliente) {
+        return _clienteService.findByEnderecos(idCliente);
+    }
+
+    @GetMapping("{idCliente}/consultas")
+    public List<Consulta> finByConsultas(@PathVariable UUID idCliente) {
+        return _clienteService.finByConsultas(idCliente);
     }
 
     @PostMapping
