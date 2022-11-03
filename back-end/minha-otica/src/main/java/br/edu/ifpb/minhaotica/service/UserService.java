@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifpb.minhaotica.dto.UserDTO;
@@ -49,6 +50,10 @@ public class UserService implements UserDetailsService {
 
         newUser.setEmail(userDTO.getEmail());
         newUser.setPassword(userDTO.getPassword());
+
+        String passwordEnconde = new BCryptPasswordEncoder().encode(newUser.getPassword());
+
+        newUser.setPassword(passwordEnconde);
 
         return _userRepository.save(newUser);
     }
