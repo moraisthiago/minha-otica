@@ -1,32 +1,22 @@
-_id: req_5535d37c6ba24b62b9f52c768380c613
+_id: req_aae8cba719404565856811d20342a606
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1667493135669
-created: 1667351943885
-url: localhost:8080/gerente/{id}
-name: PUT - Gerente
+modified: 1667485670299
+created: 1667484401584
+url: localhost:8080/role/{id}
+name: DELETE BY ID - Role
 description: ""
-method: PUT
-body:
-  mimeType: application/json
-  text: |-
-    {
-    	"name" : "",
-    	"birthDate" : "",
-    	"cpf" : "",
-    	"phone" : ""
-    }
+method: DELETE
+body: {}
 parameters: []
-headers:
-  - name: Content-Type
-    value: application/json
+headers: []
 authentication:
   type: basic
   useISO88591: false
   disabled: false
   username: admin@email.com
   password: "12345"
-metaSortKey: -1666790070684.9766
+metaSortKey: -26030537273.072754
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

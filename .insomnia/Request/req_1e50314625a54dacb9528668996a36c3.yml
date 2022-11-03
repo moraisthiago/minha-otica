@@ -1,32 +1,22 @@
-_id: req_5535d37c6ba24b62b9f52c768380c613
+_id: req_1e50314625a54dacb9528668996a36c3
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1667493135669
-created: 1667351943885
-url: localhost:8080/gerente/{id}
-name: PUT - Gerente
+modified: 1667492535389
+created: 1667492390049
+url: localhost:8080/user/{idUser}/{idRole}
+name: POST - UserRole
 description: ""
-method: PUT
-body:
-  mimeType: application/json
-  text: |-
-    {
-    	"name" : "",
-    	"birthDate" : "",
-    	"cpf" : "",
-    	"phone" : ""
-    }
+method: POST
+body: {}
 parameters: []
-headers:
-  - name: Content-Type
-    value: application/json
+headers: []
 authentication:
   type: basic
   useISO88591: false
   disabled: false
   username: admin@email.com
   password: "12345"
-metaSortKey: -1666790070684.9766
+metaSortKey: -1197404714561.3467
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
