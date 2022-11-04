@@ -10,46 +10,46 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpb.minhaotica.dto.UserDTO;
-import br.edu.ifpb.minhaotica.model.User;
-import br.edu.ifpb.minhaotica.service.UserService;
+import br.edu.ifpb.minhaotica.dto.ConsultaDTO;
+import br.edu.ifpb.minhaotica.model.Consulta;
+import br.edu.ifpb.minhaotica.service.ConsultaService;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/consulta")
+public class ConsultaController {
 
     @Autowired
-    private UserService _userService;
+    private ConsultaService _consultaService;
 
     @GetMapping
-    private List<User> findAll() {
-        return _userService.findAll();
+    private List<Consulta> findAll() {
+        return _consultaService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> findById(@PathVariable UUID id) {
-        return _userService.findById(id);
+    public ResponseEntity<Consulta> findById(@PathVariable UUID id) {
+        return _consultaService.findById(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public User save(@RequestBody UserDTO userDTO) {
-        return _userService.save(userDTO);
+    public ResponseEntity<Consulta> save(@RequestBody ConsultaDTO ConsultaDTO) {
+        return _consultaService.save(ConsultaDTO);
     }
 
-    @PostMapping("/{idUser}/{idRole}")
-    public ResponseEntity<User> saveRoleUser(@PathVariable(value = "idUser") UUID idUser,
-            @PathVariable(value = "idRole") UUID idRole) {
-        return _userService.saveRoleUser(idUser, idRole);
+    @PutMapping("/{id}")
+    public ResponseEntity<Consulta> update(@PathVariable UUID id, @RequestBody ConsultaDTO newConsultaDTO) {
+        return _consultaService.update(id, newConsultaDTO);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable UUID id) {
-        return _userService.delete(id);
+        return _consultaService.delete(id);
     }
 }

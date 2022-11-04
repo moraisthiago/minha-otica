@@ -10,9 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.springframework.security.core.GrantedAuthority;
 
@@ -33,9 +31,7 @@ public class Role implements GrantedAuthority {
     private UUID id;
 
     @Column(name = "name_role", unique = true)
-    @Size(min = 5, max = 50, message = "Invalid size! Enter minimum 5 and maximum 50 characters") // max=50,100 ou 255
-    @NotEmpty
-    @NotNull
+    @NotNull(message = "Name may not be null")
     @Enumerated(EnumType.STRING)
     private RoleName name;
 

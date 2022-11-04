@@ -28,6 +28,7 @@ public class OticaService {
 
         if (otica.isPresent()) {
             return new ResponseEntity<Otica>(otica.get(), HttpStatus.OK);
+
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

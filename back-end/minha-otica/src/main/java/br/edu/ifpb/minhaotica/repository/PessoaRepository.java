@@ -5,9 +5,9 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.ifpb.minhaotica.model.Role;
+import br.edu.ifpb.minhaotica.model.Pessoa;
 
 @Repository
-public interface RoleRepository extends JpaRepository<Role, UUID> {
+public interface PessoaRepository extends JpaRepository<Pessoa, UUID> {
 
 }
