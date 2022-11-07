@@ -1,7 +1,7 @@
 _id: req_39641f861b964a4eae79388e9be5b1db
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1667484301275
+modified: 1667506712608
 created: 1667484297673
 url: localhost:8080/role
 name: GET - Role
@@ -13,7 +13,7 @@ headers: []
 authentication:
   type: basic
   useISO88591: false
-  disabled: false
+  disabled: true
   username: admin@email.com
   password: "12345"
 metaSortKey: -832977192738.3281

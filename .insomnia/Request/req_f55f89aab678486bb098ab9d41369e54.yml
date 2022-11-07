@@ -1,7 +1,7 @@
 _id: req_f55f89aab678486bb098ab9d41369e54
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1666790443773
+modified: 1667506613529
 created: 1666790428728
 url: localhost:8080/consulta
 name: GET - Consulta
@@ -13,7 +13,7 @@ headers: []
 authentication:
   type: basic
   useISO88591: false
-  disabled: false
+  disabled: true
   username: admin@email.com
   password: "12345"
 metaSortKey: -1666790070759

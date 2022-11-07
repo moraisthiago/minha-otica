@@ -1,7 +1,7 @@
 _id: req_3869d73787ad4c0da69e7f523c96cca1
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1667493163397
+modified: 1667826734879
 created: 1667353750465
 url: localhost:8080/funcionario
 name: POST - Funcionario
@@ -11,10 +11,12 @@ body:
   mimeType: application/json
   text: |-
     {
-    	"name" : "",
-    	"birthDate" : "",
-    	"cpf" : "",
-    	"phone" : ""
+    	"name" : "Paulo",
+    	"birthDate" : "1980-04-05",
+    	"cpf" : "53813037002",
+    	"phone" : "34567887654",
+    	"email" : "pauloFuncionaio@email.com", 
+    	"password" : "12345678"
     }
 parameters: []
 headers:
@@ -23,7 +25,7 @@ headers:
 authentication:
   type: basic
   useISO88591: false
-  disabled: false
+  disabled: true
   username: admin@email.com
   password: "12345"
 metaSortKey: -1666790070700.6016

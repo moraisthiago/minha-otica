@@ -1,7 +1,7 @@
 _id: req_87dfccfa4f2a44b398470f38eab0fe54
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1667485551043
+modified: 1667508762482
 created: 1667485543591
 url: localhost:8080/user/{id}
 name: DELETE BY ID- User
@@ -13,7 +13,7 @@ headers: []
 authentication:
   type: basic
   useISO88591: false
-  disabled: false
+  disabled: true
   username: admin@email.com
   password: "12345"
 metaSortKey: -1041221490922.9102

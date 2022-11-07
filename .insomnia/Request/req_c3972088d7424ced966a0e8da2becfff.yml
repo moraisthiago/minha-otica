@@ -1,7 +1,7 @@
 _id: req_c3972088d7424ced966a0e8da2becfff
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1667493106933
+modified: 1667559740861
 created: 1665954510789
 url: localhost:8080/otica
 name: POST - Otica
@@ -23,9 +23,9 @@ headers:
 authentication:
   type: basic
   useISO88591: false
-  disabled: false
+  disabled: true
   username: admin@email.com
-  password: "12345"
+  password: "123456782345"
 metaSortKey: -1665954385479
 isPrivate: false
 settingStoreCookies: true
