@@ -2,6 +2,7 @@ package br.edu.ifpb.minhaotica.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,7 +20,8 @@ public class SecurityConfig {
                 .httpBasic()
                 .and()
                 .authorizeHttpRequests()
-                .anyRequest().authenticated()
+                .antMatchers(HttpMethod.GET, "/user").permitAll()
+                // .anyRequest().authenticated()
                 .and()
                 .csrf().disable();
 

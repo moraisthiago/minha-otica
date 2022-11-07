@@ -49,9 +49,8 @@ public class UserService implements UserDetailsService {
         User newUser = new User();
 
         newUser.setEmail(userDTO.getEmail());
-        newUser.setPassword(userDTO.getPassword());
 
-        String passwordEnconde = new BCryptPasswordEncoder().encode(newUser.getPassword());
+        String passwordEnconde = new BCryptPasswordEncoder().encode(userDTO.getPassword());
 
         newUser.setPassword(passwordEnconde);
 
@@ -80,7 +79,10 @@ public class UserService implements UserDetailsService {
             User user = oldUser.get();
 
             user.setEmail(newUserDTO.getEmail());
-            user.setPassword(newUserDTO.getPassword());
+
+            String passwordEnconde = new BCryptPasswordEncoder().encode(newUserDTO.getPassword());
+
+            user.setPassword(passwordEnconde);
 
             _userRepository.save(user);
 

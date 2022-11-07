@@ -14,4 +14,6 @@ public class FuncionarioDTO {
     private LocalDate birthDate;
     private String cpf;
     private String phone;
+    private String email;
+    private String password;
 }

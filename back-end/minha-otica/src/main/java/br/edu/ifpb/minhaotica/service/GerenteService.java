@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifpb.minhaotica.dto.GerenteDTO;
@@ -50,6 +51,11 @@ public class GerenteService {
         newGerente.setBirthDate(gerenteDTO.getBirthDate());
         newGerente.setCpf(gerenteDTO.getCpf());
         newGerente.setPhone(gerenteDTO.getPhone());
+        newGerente.setEmail(gerenteDTO.getEmail());
+
+        String passwordEnconde = new BCryptPasswordEncoder().encode(gerenteDTO.getPassword());
+
+        newGerente.setPassword(passwordEnconde);
 
         return _gerenteRepository.save(newGerente);
     }
@@ -64,6 +70,11 @@ public class GerenteService {
             gerente.setBirthDate(newGerenteDTO.getBirthDate());
             gerente.setCpf(newGerenteDTO.getCpf());
             gerente.setPhone(newGerenteDTO.getPhone());
+            gerente.setEmail(newGerenteDTO.getEmail());
+
+            String passwordEnconde = new BCryptPasswordEncoder().encode(newGerenteDTO.getPassword());
+
+            gerente.setPassword(passwordEnconde);
 
             _gerenteRepository.save(gerente);
 
