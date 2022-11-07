@@ -5,12 +5,12 @@ import Table from 'react-bootstrap/Table';
 import { useState, useEffect } from "react";
 import Axios from "axios";
 
-import "./Cliente.css";
-import ModalCliente from "../modal/ModalCliente";
+import "./Otica.css";
+import ModalOtica from "../modal/ModalOtica";
 
-function Cliente() {
-  const url = "http://localhost:3001/clientes";
-  const [cliente, setCliente] = useState({});
+function Otica() {
+  const url = "http://localhost:3001/oticas";
+  const [otica, setOtica] = useState({});
 
   //   function submit(event) {
   //     event.preventDefault();
@@ -23,20 +23,19 @@ function Cliente() {
   function submit(e) {
     e.preventDefault();
 
-    Axios.get(url + `?cpf=${cliente.cpf}`)
-      .then((cpf) => {
-        if (cpf.data.length === 0) {
-          //Se o e-mail não existir
-          Axios.post(url, cliente)
+    Axios.get(url + `?cnpj=${otica.cnpj}`)
+      .then((cnpj) => {
+        if (cnpj.data.length === 0) {
+          Axios.post(url, otica)
             .then(() => {
-              setCliente({});
+              setOtica({});
               alert("Cadastro realizado com sucesso!");
             })
             .catch((error) => {
               console.log(error);
             });
         } else {
-          alert("CPF já cadastrado!");
+          alert("CNPJ já cadastrado!");
         }
       })
       .catch((error) => {
@@ -47,7 +46,7 @@ function Cliente() {
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setCliente((values) => ({ ...values, [name]: value }));
+    setOtica((values) => ({ ...values, [name]: value }));
   };
 
   const [data, setData] = useState([]);
@@ -58,17 +57,16 @@ function Cliente() {
   }, [])
 
   const renderTable = () => {
-    return data?.map(cliente => {
+    return data?.map(otica => {
       return (
-        <tr key={cliente.id}>
-          <td>{cliente.nome}</td>
-          <td>{cliente.cpf}</td>
-          <td>{cliente.telefone}</td>
-          <td>{cliente.endereco}</td>
+        <tr key={otica.id}>
+          <td>{otica.nome}</td>
+          <td>{otica.cnpj}</td>
+          <td>{otica.proprietario}</td>
           <td>
-            <ModalCliente id={cliente.id} show={modalShow} onHide={() => setModalShow(false)} />
+            <ModalOtica id={otica.id} show={modalShow} onHide={() => setModalShow(false)} />
           </td>
-          <td> <Button onClick={() => handleDelete(cliente.id)} > 🗑️ </Button> </td>
+          <td> <Button onClick={() => handleDelete(otica.id)} > 🗑️ </Button> </td>
         </tr>
       )
     }
@@ -91,63 +89,49 @@ function Cliente() {
     <Container id="main-container" className="d-grid h-100">
       <Form
         onSubmit={(event) => submit(event)}
-        id="cliente-form"
+        id="otica-form"
         className="text-center p-3 w-100"
       >
-        <h1 className="mb-3 fs-3 fw-normal">Cadastrar Cliente</h1>
+        <h1 className="mb-3 fs-3 fw-normal">Cadastrar Ótica</h1>
 
-        <Form.Group className="mb-3" controlId="cliente-nome">
+        <Form.Group className="mb-3" controlId="otica-nome">
           <Form.Control
             className="position-relative"
             required
             type="text"
             name="nome"
-            placeholder="Nome"
+            placeholder="Nome da ótica"
             autoComplete="nome"
             size="lg"
-            value={cliente.nome || ""}
+            value={otica.nome || ""}
             onChange={handleChange}
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="cliente-telefone">
+        <Form.Group className="mb-3" controlId="otica-cnpj">
           <Form.Control
             className="position-relative"
             required
             type="text"
-            name="telefone"
-            placeholder="Telefone"
-            autoComplete="telefone"
+            name="cnpj"
+            placeholder="CNPJ"
+            autoComplete="cnpj"
             size="lg"
-            value={cliente.telefone || ""}
+            value={otica.cnpj || ""}
             onChange={handleChange}
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="cliente-cpf">
+        <Form.Group className="mb-3" controlId="otica-proprietario">
           <Form.Control
             className="position-relative"
             type="text"
             required
-            name="cpf"
-            placeholder="CPF"
-            autoComplete="cpf"
+            name="proprietario"
+            placeholder="Proprietario"
+            autoComplete="proprietario"
             size="lg"
-            value={cliente.cpf || ""}
-            onChange={handleChange}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="cliente-endereco">
-          <Form.Control
-            className="position-relative"
-            required
-            type="text"
-            name="endereco"
-            placeholder="Endereço"
-            autoComplete="endereco"
-            size="lg"
-            value={cliente.endereco || ""}
+            value={otica.proprietario || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -165,9 +149,8 @@ function Cliente() {
         <thead>
           <tr>
             <th scope="row">Nome</th>
-            <th scope="row">Telefone</th>
-            <th scope="row">CPF</th>
-            <th scope="row">Endereço</th>
+            <th scope="row">CNPJ</th>
+            <th scope="row">Proprietário</th>
           </tr>
         </thead>
         <tbody>
@@ -178,4 +161,4 @@ function Cliente() {
   );
 }
 
-export default Cliente;
+export default Otica;
