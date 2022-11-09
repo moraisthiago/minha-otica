@@ -8,6 +8,7 @@ import Axios from "axios";
 
 import "./Cliente.css";
 import ModalCliente from "../modal/ModalCliente";
+import ClienteUpdate from "../teste/Modal/ClienteUpdate";
 
 function Cliente() {
   const url = "http://localhost:8080/cliente";
@@ -68,7 +69,7 @@ function Cliente() {
           <td>{cliente.cpf}</td>
           <td>{cliente.phone}</td>
           <td>
-            <ModalCliente
+            <ClienteUpdate
               id={cliente.id}
               show={modalShow}
               onHide={() => setModalShow(false)}
@@ -95,7 +96,7 @@ function Cliente() {
 
   return (
     <Container id="main-container" className="d-grid h-100">
-      <Form
+      {/* <Form
         onSubmit={(event) => submit(event)}
         id="cliente-form"
         className="text-center p-3 w-100"
@@ -116,7 +117,6 @@ function Cliente() {
             value={cliente.name || ""}
             onChange={handleChange}
           />
-          <div class="invalid-feedback">Please choose a username.</div>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="cliente-dateBirth">
@@ -176,7 +176,7 @@ function Cliente() {
         </div>
 
         <p className="mt-5 text-muted">&copy; Minha Ótica, 2022</p>
-      </Form>
+      </Form> */}
 
       <Table striped bordered hover>
         <thead>

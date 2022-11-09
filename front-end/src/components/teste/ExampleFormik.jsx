@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { cpf } from "cpf-cnpj-validator";
-import { useState } from "react";
 import Axios from "axios";
 
 import "./ExampleFormik.css";
@@ -19,6 +18,7 @@ function ExampleFormik() {
       console.log(r);
     });
   }
+
   const Schema = yup.object({
     cpf: yup
       .string()
@@ -40,8 +40,9 @@ function ExampleFormik() {
             <div>
               <Field
                 name="cpf"
+                minLength={11}
+                maxLength={11}
                 placeholder="Number CPF"
-                value={cliente.cpf || ""}
               />
               <ErrorMessage component="div" name="cpf" />
             </div>

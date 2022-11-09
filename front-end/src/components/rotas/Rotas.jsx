@@ -4,7 +4,8 @@ import Cliente from "../cliente/Cliente";
 import Header from "../header/Header";
 import Lente from "../lente/Lente";
 import Otica from "../otica/Otica";
-import ExampleFormik from "../teste/ExampleFormik";
+import ClienteExample from "../teste/Cliente/ClienteExample";
+import OticaExample from "../teste/Otica/OticaExample";
 
 function Rotas() {
   return (
@@ -12,10 +13,11 @@ function Rotas() {
       <Header></Header> 
       <Routes>
         <Route path="/" exact element={<Cliente />} />
-        <Route path="/formik" element={<ExampleFormik />} />
-        <Route path="/cliente" element={<Cliente />} />
-        <Route path="/lente" element={<Lente />} />
-        <Route path="/otica" element={<Otica />} />
+        <Route path="/cliente/cadastro" element={<ClienteExample />} />
+        <Route path="/cliente/listar" element={<Cliente />} />
+        <Route path="/lente/listar" element={<Lente />} />
+        <Route path="/otica/cadastro" element={<OticaExample />} />
+        <Route path="/otica/listar" element={<Otica />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>

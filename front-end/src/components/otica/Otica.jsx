@@ -9,7 +9,7 @@ import "./Otica.css";
 import ModalOtica from "../modal/ModalOtica";
 
 function Otica() {
-  const url = "http://localhost:3001/oticas";
+  const url = "http://localhost:8080/otica";
   const [otica, setOtica] = useState({});
 
   //   function submit(event) {
@@ -60,9 +60,9 @@ function Otica() {
     return data?.map(otica => {
       return (
         <tr key={otica.id}>
-          <td>{otica.nome}</td>
+          <td>{otica.name}</td>
           <td>{otica.cnpj}</td>
-          <td>{otica.proprietario}</td>
+          <td>{otica.owner}</td>
           <td>
             <ModalOtica id={otica.id} show={modalShow} onHide={() => setModalShow(false)} />
           </td>
@@ -78,8 +78,8 @@ function Otica() {
   const handleDelete = (id) => {
     Axios.delete(`${url}/${id}`)
       .then(() => {
-        setData(cliente => [
-          ...cliente.filter(nutricionista => nutricionista.id !== id),
+        setData(clientes => [
+          ...clientes.filter(cliente => cliente.id !== id),
         ]);
         alert('Registro apagado com sucesso!');
       })
@@ -87,7 +87,7 @@ function Otica() {
 
   return (
     <Container id="main-container" className="d-grid h-100">
-      <Form
+      {/* <Form
         onSubmit={(event) => submit(event)}
         id="otica-form"
         className="text-center p-3 w-100"
@@ -143,7 +143,7 @@ function Otica() {
         </div>
 
         <p className="mt-5 text-muted">&copy; Minha Ótica, 2022</p>
-      </Form>
+      </Form> */}
 
       <Table striped bordered hover>
         <thead>
