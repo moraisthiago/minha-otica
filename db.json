@@ -1,0 +1,18 @@
+{
+  "cliente": [
+    {
+      "name": "Neville",
+      "dateBirth": "2022-11-09",
+      "cpf": "07984567456",
+      "phone": "83999999414",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ]
+}

@@ -1,35 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
+import React, { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 
-export default function ModalCliente({id}) {
-
+export default function ModalCliente({ id }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const baseUrl = "http://localhost:3001/clientes";
+  const baseUrl = "http://localhost:8080/cliente";
   const [values, setValues] = useState({});
 
   useEffect(() => {
-    axios.get(baseUrl + "/" + id)
-    .then((response) => {
-      setValues(response.data);
-    })
-    .catch ((error) => {
-      console.log(error);
-    });
-  }, [id]);
-
-  function updatePost() {
-    axios.put(baseUrl + "/" + id, values)
+    axios
+      .get(baseUrl + "/" + id)
       .then((response) => {
         setValues(response.data);
       })
-      .catch ((error) => {
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
+
+  function updatePost() {
+    axios
+      .put(baseUrl + "/" + id, values)
+      .then((response) => {
+        setValues(response.data);
+      })
+      .catch((error) => {
         console.log(error);
       });
   }
@@ -37,14 +38,12 @@ export default function ModalCliente({id}) {
   function handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
-    setValues(values => ({...values, [name]: value}))
+    setValues((values) => ({ ...values, [name]: value }));
   }
 
   return (
     <>
-      <Button onClick={handleShow}>
-        ✍️
-      </Button>
+      <Button onClick={handleShow}>✍️</Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -54,39 +53,76 @@ export default function ModalCliente({id}) {
           <Form onSubmit={(event) => updatePost(event)}>
             <Form.Group className="mb-6">
               <label>Nome</label>
-              <input onChange={(event) => handleChange(event)}
-              id='nome' name='nome' type='text' className='form-control' 
-              value={values.nome} placeholder='Nome do cliente' />
-            </Form.Group>
-
-            <Form.Group className="mb-6">
-              <label>CPF</label>
-              <input onChange={(event) => handleChange(event)}
-              id='cpf' name='cpf' type='text' className='form-control' 
-              value={values.cpf} placeholder='CPF' />
-            </Form.Group>
-
-            <Form.Group className="mb-6">
-              <label>Telefone</label>
-              <input onChange={(event) => handleChange(event)}
-              id='telefone' name='telefone' type='text' className='form-control' 
-              value={values.telefone} placeholder='Telefone' />
+              <input
+                onChange={(event) => handleChange(event)}
+                required
+                minLength={5}
+                id="name"
+                name="name"
+                type="text"
+                className="form-control"
+                value={values.name}
+                placeholder="Nome do cliente"
+              />
             </Form.Group>
 
             <Form.Group className="mb-6">
               <label>Endereço</label>
-              <input onChange={(event) => handleChange(event)}
-              id='endereco' name='endereco' type='text' className='form-control' 
-              value={values.endereco} placeholder='Endereço' />
+              <input
+                onChange={(event) => handleChange(event)}
+                required
+                id="dateBirth"
+                name="dateBirth"
+                type="date"
+                className="form-control"
+                value={values.dateBirth}
+                placeholder="Endereço"
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-6">
+              <label>CPF</label>
+              <input
+                onChange={(event) => handleChange(event)}
+                required
+                minLength={11}
+                maxLength={11}
+                id="cpf"
+                name="cpf"
+                type="text"
+                className="form-control"
+                value={values.cpf}
+                placeholder="CPF"
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-6">
+              <label>Telefone</label>
+              <input
+                onChange={(event) => handleChange(event)}
+                required
+                minLength={11}
+                maxLength={11}
+                id="phone"
+                name="phone"
+                type="text"
+                className="form-control"
+                value={values.phone}
+                placeholder="Telefone"
+              />
             </Form.Group>
 
             <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Fechar
-            </Button>
-            <Button type="submit" variant="primary" onClick={handleClose}>
-              Salvar
-            </Button>
+              <Button variant="secondary" onClick={handleClose}>
+                Fechar
+              </Button>
+              <Button
+                type="submit"
+                variant="primary"
+                // onClick={handleClose}
+              >
+                Salvar
+              </Button>
             </Modal.Footer>
           </Form>
         </Modal.Body>

@@ -1,15 +1,16 @@
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Table from 'react-bootstrap/Table';
+import Table from "react-bootstrap/Table";
 import { useState, useEffect } from "react";
+// import { IMaskInput } from "react-imask";
 import Axios from "axios";
 
 import "./Cliente.css";
 import ModalCliente from "../modal/ModalCliente";
 
 function Cliente() {
-  const url = "http://localhost:3001/clientes";
+  const url = "http://localhost:8080/cliente";
   const [cliente, setCliente] = useState({});
 
   //   function submit(event) {
@@ -26,7 +27,7 @@ function Cliente() {
     Axios.get(url + `?cpf=${cliente.cpf}`)
       .then((cpf) => {
         if (cpf.data.length === 0) {
-          //Se o e-mail não existir
+          //Se o CPF não existir
           Axios.post(url, cliente)
             .then(() => {
               setCliente({});
@@ -53,38 +54,43 @@ function Cliente() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    Axios.get(url)
-      .then(json => setData(json.data))
-  }, [])
+    Axios.get(url).then((json) => setData(json.data));
+  }, []);
+
+  console.log(data);
 
   const renderTable = () => {
-    return data?.map(cliente => {
+    return data?.map((cliente) => {
       return (
         <tr key={cliente.id}>
-          <td>{cliente.nome}</td>
+          <td>{cliente.name}</td>
+          <td>{cliente.dateBirth}</td>
           <td>{cliente.cpf}</td>
-          <td>{cliente.telefone}</td>
-          <td>{cliente.endereco}</td>
+          <td>{cliente.phone}</td>
           <td>
-            <ModalCliente id={cliente.id} show={modalShow} onHide={() => setModalShow(false)} />
+            <ModalCliente
+              id={cliente.id}
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+            />
           </td>
-          <td> <Button onClick={() => handleDelete(cliente.id)} > 🗑️ </Button> </td>
+          <td>
+            {" "}
+            <Button onClick={() => handleDelete(cliente.id)}> 🗑️ </Button>{" "}
+          </td>
         </tr>
-      )
-    }
-    )
-  }
+      );
+    });
+  };
   const [modalShow, setModalShow] = useState(false);
 
-
   const handleDelete = (id) => {
-    Axios.delete(`${url}/${id}`)
-      .then(() => {
-        setData(cliente => [
-          ...cliente.filter(nutricionista => nutricionista.id !== id),
-        ]);
-        alert('Registro apagado com sucesso!');
-      })
+    Axios.delete(`${url}/${id}`).then(() => {
+      setData((cliente) => [
+        ...cliente.filter((nutricionista) => nutricionista.id !== id),
+      ]);
+      alert("Registro apagado com sucesso!");
+    });
   };
 
   return (
@@ -97,40 +103,48 @@ function Cliente() {
         <h1 className="mb-3 fs-3 fw-normal">Cadastrar Cliente</h1>
 
         <Form.Group className="mb-3" controlId="cliente-nome">
+          <Form.Label>Nome</Form.Label>
           <Form.Control
             className="position-relative"
             required
+            minLength={5}
             type="text"
-            name="nome"
-            placeholder="Nome"
+            name="name"
+            // placeholder="Insira o nome do cliente"
             autoComplete="nome"
             size="lg"
-            value={cliente.nome || ""}
+            value={cliente.name || ""}
             onChange={handleChange}
           />
+          <div class="invalid-feedback">Please choose a username.</div>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="cliente-telefone">
+        <Form.Group className="mb-3" controlId="cliente-dateBirth">
+          <Form.Label>Data de Nascimento</Form.Label>
           <Form.Control
             className="position-relative"
             required
-            type="text"
-            name="telefone"
-            placeholder="Telefone"
-            autoComplete="telefone"
+            type="date"
+            name="dateBirth"
+            autoComplete="dateBirth"
             size="lg"
-            value={cliente.telefone || ""}
+            value={cliente.dateBirth || ""}
             onChange={handleChange}
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="cliente-cpf">
+          <Form.Label>CPF</Form.Label>
           <Form.Control
             className="position-relative"
-            type="text"
             required
+            minLength={11}
+            maxLength={11}
+            type="text"
             name="cpf"
-            placeholder="CPF"
+            // as={IMaskInput}
+            // mask="000.000.000-00"
+            // placeholder="Insira o CPF do cliente"
             autoComplete="cpf"
             size="lg"
             value={cliente.cpf || ""}
@@ -138,16 +152,19 @@ function Cliente() {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="cliente-endereco">
+        <Form.Group className="mb-3" controlId="cliente-telefone">
+          <Form.Label>Telefone</Form.Label>
           <Form.Control
             className="position-relative"
             required
+            minLength={11}
+            maxLength={11}
             type="text"
-            name="endereco"
-            placeholder="Endereço"
-            autoComplete="endereco"
+            name="phone"
+            // placeholder="Telefone"
+            autoComplete="telefone"
             size="lg"
-            value={cliente.endereco || ""}
+            value={cliente.phone || ""}
             onChange={handleChange}
           />
         </Form.Group>
@@ -165,14 +182,12 @@ function Cliente() {
         <thead>
           <tr>
             <th scope="row">Nome</th>
-            <th scope="row">Telefone</th>
+            <th scope="row">Nascimento</th>
             <th scope="row">CPF</th>
-            <th scope="row">Endereço</th>
+            <th scope="row">Telefone</th>
           </tr>
         </thead>
-        <tbody>
-          {renderTable()}
-        </tbody>
+        <tbody>{renderTable()}</tbody>
       </Table>
     </Container>
   );

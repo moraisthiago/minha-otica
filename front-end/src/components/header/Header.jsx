@@ -11,13 +11,24 @@ function Header() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <NavLink className="nav-link" to="/clientes" >Cliente</NavLink>
+            <NavLink className="nav-link" to="/formik">
+              Formik
+            </NavLink>
           </Nav>
           <Nav>
-            <NavLink className="nav-link" to="/lentes" >Lente</NavLink>
+            <NavLink className="nav-link" to="/cliente">
+              Cliente
+            </NavLink>
           </Nav>
           <Nav>
-            <NavLink className="nav-link" to="/oticas" >Ótica</NavLink>
+            <NavLink className="nav-link" to="/lente">
+              Lente
+            </NavLink>
+          </Nav>
+          <Nav>
+            <NavLink className="nav-link" to="/otica">
+              Ótica
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
