@@ -20,11 +20,11 @@ function Header() {
               Listar Clientes
             </NavLink>
           </Nav>
-          <Nav>
+          {/* <Nav>
             <NavLink className="nav-link" to="/lente/listar">
               Listar Lentes
             </NavLink>
-          </Nav>
+          </Nav> */}
           <Nav>
             <NavLink className="nav-link" to="/otica/cadastro">
               Cadastrar Ótica

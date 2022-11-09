@@ -65,11 +65,11 @@ function Cliente() {
       return (
         <tr key={cliente.id}>
           <td>{cliente.name}</td>
-          <td>{cliente.dateBirth}</td>
+          <td>{cliente.birthDate}</td>
           <td>{cliente.cpf}</td>
           <td>{cliente.phone}</td>
           <td>
-            <ClienteUpdate
+            <ModalCliente
               id={cliente.id}
               show={modalShow}
               onHide={() => setModalShow(false)}
@@ -119,16 +119,16 @@ function Cliente() {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="cliente-dateBirth">
+        <Form.Group className="mb-3" controlId="cliente-birthDate">
           <Form.Label>Data de Nascimento</Form.Label>
           <Form.Control
             className="position-relative"
             required
             type="date"
-            name="dateBirth"
-            autoComplete="dateBirth"
+            name="birthDate"
+            autoComplete="birthDate"
             size="lg"
-            value={cliente.dateBirth || ""}
+            value={cliente.birthDate || ""}
             onChange={handleChange}
           />
         </Form.Group>

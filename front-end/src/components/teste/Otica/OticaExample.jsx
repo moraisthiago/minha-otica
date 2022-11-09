@@ -15,7 +15,10 @@ const LoginSchema = Yup.object().shape({
     .max(14, "O CNPJ deve conter 14 números")
     .required("Insira um CNPJ")
     .test((value) => cnpj.isValid(value)),
-  owner: Yup.string()
+  ownerName: Yup.string()
+    .min(5, "O nome deve conter, pelo menos, 5 caracteres")
+    .required("Insira um nome"),
+  managerName: Yup.string()
     .min(5, "O nome deve conter, pelo menos, 5 caracteres")
     .required("Insira um nome"),
 });
@@ -29,24 +32,14 @@ class OticaExample extends React.Component {
           <div className="row">
             <div className="col-lg-12">
               <Formik
-                initialValues={{ name: "", cnpj: "", owner: "" }}
+                initialValues={{ name: "", cnpj: "", ownerName: "" }}
                 validationSchema={LoginSchema}
                 onSubmit={(values) => {
                   console.log(values);
 
-                  Axios.get(url + `?cnpj=${values.cnpj}`)
-                    .then((cnpj) => {
-                      if (cnpj.data.length === 0) {
-                        Axios.post(url, values)
-                          .then(() => {
-                            alert("Cadastro realizado com sucesso!");
-                          })
-                          .catch((error) => {
-                            console.log(error);
-                          });
-                      } else {
-                        alert("CNPJ já cadastrado!");
-                      }
+                  Axios.post(url, values)
+                    .then(() => {
+                      alert("Cadastro realizado com sucesso!");
                     })
                     .catch((error) => {
                       console.log(error);
@@ -96,18 +89,43 @@ class OticaExample extends React.Component {
                       </div>
 
                       <div className="form-group">
-                        <label htmlFor="owner">Proprietário</label>
+                        <label htmlFor="ownerName">Proprietário</label>
                         <Field
                           type="text"
-                          name="owner"
+                          name="ownerName"
                           placeholder="Insira o o nome do proprietáio"
                           className={`mt-2 form-control
-                          ${touched.owner && errors.owner ? "is-invalid" : ""}`}
+                          ${
+                            touched.ownerName && errors.ownerName
+                              ? "is-invalid"
+                              : ""
+                          }`}
                         />
 
                         <ErrorMessage
                           component="div"
-                          name="owner"
+                          name="ownerName"
+                          className="invalid-feedback"
+                        />
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="managerName">Gerente</label>
+                        <Field
+                          type="text"
+                          name="managerName"
+                          placeholder="Insira o o nome do proprietáio"
+                          className={`mt-2 form-control
+                          ${
+                            touched.managerName && errors.managerName
+                              ? "is-invalid"
+                              : ""
+                          }`}
+                        />
+
+                        <ErrorMessage
+                          component="div"
+                          name="managerName"
                           className="invalid-feedback"
                         />
                       </div>

@@ -10,7 +10,7 @@ const LoginSchema = Yup.object().shape({
   name: Yup.string()
     .min(5, "O nome deve conter, pelo menos, 5 caracteres")
     .required("Insira um nome"),
-  dateBirth: Yup.string().required("Insira uma data"),
+  birthDate: Yup.string().required("Insira uma data"),
   cpf: Yup.string()
     .min(11, "O CPF deve conter 11 números")
     .max(11, "O CPF deve conter 11 números")
@@ -31,25 +31,14 @@ class ClienteExample extends React.Component {
           <div className="row">
             <div className="col-lg-12">
               <Formik
-                initialValues={{ name: "", dateBirth: "", cpf: "", phone: "" }}
+                initialValues={{ name: "", birthDate: "", cpf: "", phone: "" }}
                 validationSchema={LoginSchema}
                 onSubmit={(values) => {
                   console.log(values);
 
-                  Axios.get(url + `?cpf=${values.cpf}`)
-                    .then((cpf) => {
-                      if (cpf.data.length === 0) {
-                        //Se o CPF não existir
-                        Axios.post(url, values)
-                          .then(() => {
-                            alert("Cadastro realizado com sucesso!");
-                          })
-                          .catch((error) => {
-                            console.log(error);
-                          });
-                      } else {
-                        alert("CPF já cadastrado!");
-                      }
+                  Axios.post(url, values)
+                    .then(() => {
+                      alert("Cadastro realizado com sucesso!");
                     })
                     .catch((error) => {
                       console.log(error);
@@ -82,13 +71,13 @@ class ClienteExample extends React.Component {
                       </div>
 
                       <div className="form-group">
-                        <label htmlFor="dateBirth">Data de Nascimento</label>
+                        <label htmlFor="birthDate">Data de Nascimento</label>
                         <Field
                           type="date"
-                          name="dateBirth"
+                          name="birthDate"
                           className={`mt-2 form-control
                           ${
-                            touched.dateBirth && errors.dateBirth
+                            touched.birthDate && errors.birthDate
                               ? "is-invalid"
                               : ""
                           }`}
@@ -96,7 +85,7 @@ class ClienteExample extends React.Component {
 
                         <ErrorMessage
                           component="div"
-                          name="dateBirth"
+                          name="birthDate"
                           className="invalid-feedback"
                         />
                       </div>

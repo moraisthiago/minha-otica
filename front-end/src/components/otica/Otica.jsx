@@ -62,7 +62,8 @@ function Otica() {
         <tr key={otica.id}>
           <td>{otica.name}</td>
           <td>{otica.cnpj}</td>
-          <td>{otica.owner}</td>
+          <td>{otica.ownerName}</td>
+          <td>{otica.managerName}</td>
           <td>
             <ModalOtica id={otica.id} show={modalShow} onHide={() => setModalShow(false)} />
           </td>
@@ -151,6 +152,7 @@ function Otica() {
             <th scope="row">Nome</th>
             <th scope="row">CNPJ</th>
             <th scope="row">Proprietário</th>
+            <th scope="row">Gerente</th>
           </tr>
         </thead>
         <tbody>

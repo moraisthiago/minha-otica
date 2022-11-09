@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-import axios from "axios";
+import Axios from "axios";
 
 export default function ModalCliente({ id }) {
   const [show, setShow] = useState(false);
@@ -10,12 +10,12 @@ export default function ModalCliente({ id }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const baseUrl = "http://localhost:8080/cliente";
+  const url = "http://localhost:8080/cliente";
   const [values, setValues] = useState({});
 
   useEffect(() => {
-    axios
-      .get(baseUrl + "/" + id)
+    Axios
+      .get(url + "/" + id)
       .then((response) => {
         setValues(response.data);
       })
@@ -25,8 +25,8 @@ export default function ModalCliente({ id }) {
   }, [id]);
 
   function updatePost() {
-    axios
-      .put(baseUrl + "/" + id, values)
+    Axios
+      .put(url + "/" + id, values)
       .then((response) => {
         setValues(response.data);
       })
@@ -71,11 +71,11 @@ export default function ModalCliente({ id }) {
               <input
                 onChange={(event) => handleChange(event)}
                 required
-                id="dateBirth"
-                name="dateBirth"
+                id="birthDate"
+                name="birthDate"
                 type="date"
                 className="form-control"
-                value={values.dateBirth}
+                value={values.birthDate}
                 placeholder="Endereço"
               />
             </Form.Group>

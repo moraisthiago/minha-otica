@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-import axios from "axios";
+import Axios from "axios";
 
 export default function ModalOtica({ id }) {
 
@@ -11,11 +11,11 @@ export default function ModalOtica({ id }) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const baseUrl = "http://localhost:3001/oticas";
+    const url = "http://localhost:8080/otica";
     const [values, setValues] = useState({});
 
     useEffect(() => {
-        axios.get(baseUrl + "/" + id)
+        Axios.get(url + "/" + id)
             .then((response) => {
                 setValues(response.data);
             })
@@ -25,7 +25,7 @@ export default function ModalOtica({ id }) {
     }, [id]);
 
     function updatePost() {
-        axios.put(baseUrl + "/" + id, values)
+        Axios.put(url + "/" + id, values)
             .then((response) => {
                 setValues(response.data);
             })
@@ -55,8 +55,8 @@ export default function ModalOtica({ id }) {
                         <Form.Group className="mb-6">
                             <label>Nome</label>
                             <input onChange={(event) => handleChange(event)}
-                                id='nome' name='nome' type='text' className='form-control'
-                                value={values.nome} placeholder='Nome da ótica' />
+                                id='name' name='name' type='text' className='form-control'
+                                value={values.name} placeholder='Nome da ótica' />
                         </Form.Group>
 
                         <Form.Group className="mb-6">
@@ -69,8 +69,15 @@ export default function ModalOtica({ id }) {
                         <Form.Group className="mb-6">
                             <label>Proprietário</label>
                             <input onChange={(event) => handleChange(event)}
-                                id='proprietario' name='proprietario' type='text' className='form-control'
-                                value={values.proprietario} placeholder='Nome do proprietário' />
+                                id='ownerName' name='ownerName' type='text' className='form-control'
+                                value={values.ownerName} placeholder='Nome do proprietário' />
+                        </Form.Group>
+
+                        <Form.Group className="mb-6">
+                            <label>Gerente</label>
+                            <input onChange={(event) => handleChange(event)}
+                                id='managerName' name='managerName' type='text' className='form-control'
+                                value={values.managerName} placeholder='Nome do proprietário' />
                         </Form.Group>
 
                         <Modal.Footer>
