@@ -16,23 +16,8 @@ function Header() {
             </NavLink>
           </Nav>
           <Nav>
-            <NavLink className="nav-link" to="/cliente/listar">
-              Listar Clientes
-            </NavLink>
-          </Nav>
-          {/* <Nav>
-            <NavLink className="nav-link" to="/lente/listar">
-              Listar Lentes
-            </NavLink>
-          </Nav> */}
-          <Nav>
             <NavLink className="nav-link" to="/otica/cadastro">
               Cadastrar Ótica
-            </NavLink>
-          </Nav>
-          <Nav>
-            <NavLink className="nav-link" to="/otica/listar">
-              Listar Óticas
             </NavLink>
           </Nav>
         </Navbar.Collapse>

@@ -2,18 +2,9 @@
   place-items: center center;
 }
 
-#cliente-form {
-  max-width: 330px;
+#otica-form {
+  max-width: 400px;
   border-radius: 15px;
   background: #ffff;
   box-shadow: 0px 15px 80px rgba(34, 35, 58, 0.2);
-}
-
-.bootstrap-logo {
-  width: 72px;
-  height: 72px;
-}
-
-.form-control:focus {
-  z-index: 5;
 }
