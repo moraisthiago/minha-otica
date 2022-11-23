@@ -1,0 +1,21 @@
+_id: req_85959ddec80e44919b91afae1259dc4c
+type: Request
+parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
+modified: 1669201582496
+created: 1669201548127
+url: localhost:8080/vendaLente
+name: GET - VendaLente
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1669201548127
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,21 @@
+_id: req_f7add4345c0842969c9da609386ad3fa
+type: Request
+parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
+modified: 1669161663640
+created: 1669161637880
+url: localhost:8080/venda
+name: GET - Venda
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1669161637880
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

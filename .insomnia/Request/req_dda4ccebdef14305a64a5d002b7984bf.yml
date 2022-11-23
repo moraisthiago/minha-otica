@@ -1,7 +1,7 @@
 _id: req_dda4ccebdef14305a64a5d002b7984bf
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1667825997364
+modified: 1669202973843
 created: 1667351929596
 url: localhost:8080/gerente
 name: POST - Gerente
@@ -11,12 +11,12 @@ body:
   mimeType: application/json
   text: |-
     {
-    	"name" : "Ana Silva",
-    	"birthDate" : "1990-09-08",
-    	"cpf" : "65550644045",
-    	"phone" : "12345678765",
-    	"email" : "ana@email.com",
-    	"password" : "12345678"
+    	"name" : "",
+    	"birthDate" : "",
+    	"cpf" : "",
+    	"phone" : "",
+    	"email" : "", 
+    	"password" : ""
     }
 parameters: []
 headers:
