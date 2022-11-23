@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -30,7 +29,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "tb_person")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Pessoa implements Serializable {
+public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_person")

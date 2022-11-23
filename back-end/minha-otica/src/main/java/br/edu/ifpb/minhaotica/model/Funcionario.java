@@ -7,6 +7,6 @@ import javax.persistence.Table;
 @Entity
 @PrimaryKeyJoinColumn(name = "idPessoa")
 @Table(name = "tb_employee")
-public class Funcionario extends Pessoa {
+public class Funcionario extends User {
 
 }

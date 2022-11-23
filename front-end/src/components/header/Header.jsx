@@ -10,8 +10,15 @@ function Header() {
         <Navbar.Brand>Minha Ótica</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <NavLink className="nav-link" to="/cliente" >Cliente</NavLink>
+          <Nav>
+            <NavLink className="nav-link" to="/cliente/cadastro">
+              Cadastrar Cliente
+            </NavLink>
+          </Nav>
+          <Nav>
+            <NavLink className="nav-link" to="/otica/cadastro">
+              Cadastrar Ótica
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

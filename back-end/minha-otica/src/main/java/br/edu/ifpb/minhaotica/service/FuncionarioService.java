@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifpb.minhaotica.dto.FuncionarioDTO;
@@ -50,6 +51,11 @@ public class FuncionarioService {
         newFuncionario.setBirthDate(funcionarioDTO.getBirthDate());
         newFuncionario.setCpf(funcionarioDTO.getCpf());
         newFuncionario.setPhone(funcionarioDTO.getPhone());
+        newFuncionario.setEmail(funcionarioDTO.getEmail());
+
+        String passwordEnconde = new BCryptPasswordEncoder().encode(funcionarioDTO.getPassword());
+
+        newFuncionario.setPassword(passwordEnconde);
 
         return _funcionarioRepository.save(newFuncionario);
     }
@@ -64,6 +70,11 @@ public class FuncionarioService {
             funcionario.setBirthDate(newFuncionarioDTO.getBirthDate());
             funcionario.setCpf(newFuncionarioDTO.getCpf());
             funcionario.setPhone(newFuncionarioDTO.getPhone());
+            funcionario.setEmail(newFuncionarioDTO.getEmail());
+
+            String passwordEnconde = new BCryptPasswordEncoder().encode(newFuncionarioDTO.getPassword());
+
+            funcionario.setPassword(passwordEnconde);
 
             _funcionarioRepository.save(funcionario);
 

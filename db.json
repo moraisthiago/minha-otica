@@ -1,0 +1,38 @@
+{
+  "cliente": [
+    {
+      "name": "Nevilla",
+      "dateBirth": "2022-11-09",
+      "cpf": "07984567456",
+      "phone": "83999999415",
+      "id": 2
+    },
+    {
+      "name": "Analiz",
+      "dateBirth": "2022-11-26",
+      "cpf": "07987508470",
+      "phone": "83999999413",
+      "id": 3
+    }
+  ],
+  "otica": [
+    {
+      "name": "Ótica MA",
+      "cnpj": "88638517000151",
+      "owner": "Matheus Braga",
+      "id": 3
+    },
+    {
+      "name": "Neville",
+      "cnpj": "03580579000105",
+      "owner": "Matheus Braga",
+      "id": 7
+    },
+    {
+      "name": "Analiz",
+      "cnpj": "57477431000160",
+      "owner": "Matheus Braga",
+      "id": 8
+    }
+  ]
+}

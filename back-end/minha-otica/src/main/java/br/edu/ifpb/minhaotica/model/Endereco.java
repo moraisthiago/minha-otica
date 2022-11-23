@@ -47,7 +47,7 @@ public class Endereco {
     private String complement;
 
     @Column(name = "cep_address")
-    @Size(min = 11, max = 11, message = "Invalid size! Enter 11 characters")
+    @Size(min = 8, max = 8, message = "Invalid size! Enter 11 characters")
     @NotNull(message = "CEP may not be null")
     private String cep;
 
