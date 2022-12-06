@@ -11,8 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifpb.minhaotica.dto.VendaDTO;
+import br.edu.ifpb.minhaotica.model.Cliente;
 import br.edu.ifpb.minhaotica.model.Item;
 import br.edu.ifpb.minhaotica.model.Venda;
+import br.edu.ifpb.minhaotica.repository.ClienteRepository;
 import br.edu.ifpb.minhaotica.repository.ItemRepository;
 import br.edu.ifpb.minhaotica.repository.VendaRepository;
 
@@ -24,6 +26,9 @@ public class VendaService {
 
     @Autowired
     private ItemRepository _itemRepository;
+
+    @Autowired
+    private ClienteRepository _clienteRepository;
 
     public List<Venda> findAll() {
         return _vendaRepository.findAll();
@@ -40,13 +45,23 @@ public class VendaService {
         }
     }
 
-    public Venda save(VendaDTO vendaDTO) {
-        Venda newVenda = new Venda();
+    public ResponseEntity<Venda> save(VendaDTO vendaDTO) {
+        Optional<Cliente> clienteExistente = _clienteRepository.findById(vendaDTO.getCliente().getId());
 
-        newVenda.setCliente(vendaDTO.getCliente());
-        newVenda.setItens(vendaDTO.getItens());
+        if (clienteExistente.isPresent()) {
+            Cliente cliente = clienteExistente.get();
 
-        return _vendaRepository.save(newVenda);
+            Venda newVenda = new Venda();
+
+            newVenda.setCliente(cliente);
+
+            _vendaRepository.save(newVenda);
+
+            return new ResponseEntity<Venda>(newVenda, HttpStatus.OK);
+
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     public ResponseEntity<Venda> saveItemVenda(UUID idItem, UUID idVenda) {

@@ -48,7 +48,7 @@ public class ItemService {
         Optional<Armacao> armacaoOptional = _armacaoRepository.findById(itemDTO.getArmacao().getId());
         Optional<Lente> lenteOptional = _lenteRepository.findById(itemDTO.getLente().getId());
 
-        if (armacaoOptional.isPresent() && lenteOptional.isPresent()) {
+        if (armacaoOptional.isPresent() || lenteOptional.isPresent()) {
             Armacao armacao = armacaoOptional.get();
             Lente lente = lenteOptional.get();
 

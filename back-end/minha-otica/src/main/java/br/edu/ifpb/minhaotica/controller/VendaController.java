@@ -39,14 +39,8 @@ public class VendaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Venda save(@RequestBody VendaDTO vendaDTO) {
+    public ResponseEntity<Venda> save(@RequestBody VendaDTO vendaDTO) {
         return _vendaService.save(vendaDTO);
-    }
-
-    @PostMapping("/{idVenda}/{idItem}")
-    public ResponseEntity<Venda> saveItemVenda(@PathVariable(value = "idVenda") UUID idVenda,
-            @PathVariable(value = "idItem") UUID idItem) {
-        return _vendaService.saveItemVenda(idVenda, idItem);
     }
 
     @PutMapping("/{id}")
