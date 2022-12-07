@@ -43,6 +43,12 @@ public class VendaController {
         return _vendaService.save(vendaDTO);
     }
 
+    @PostMapping("/{idItem}/{idVenda}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Venda> saveItemVenda(@PathVariable UUID idItem, @PathVariable UUID idVenda) {
+        return _vendaService.saveItemVenda(idItem, idVenda);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Venda> update(@PathVariable UUID id, @RequestBody VendaDTO newVendaDTO) {
         return _vendaService.update(id, newVendaDTO);
