@@ -1,30 +1,27 @@
-_id: req_f68c64d64dc7476594bcd81bf10e28a7
+_id: req_8df4647d9fc5479e8b722aa3fa43febf
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1669202664705
-created: 1669201620135
-url: localhost:8080/vendaLente/{id}
-name: PUT - VendaLente
+modified: 1671135001490
+created: 1671129566460
+url: localhost:8080/itemLente
+name: POST - ItemLente
 description: ""
-method: PUT
+method: POST
 body:
   mimeType: application/json
   text: |-
     {
-    	"cliente" : {
+    	"lente" : {
     		"id" : ""
     	},
-    	"lente" :  {
-    		"id" : ""
-    	},
-    	"qtdLente" : 
+    	"quantidade" : 
     }
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1669176604222.625
+metaSortKey: -1667956787762.6719
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

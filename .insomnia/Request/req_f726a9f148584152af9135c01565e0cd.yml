@@ -1,7 +1,7 @@
 _id: req_f726a9f148584152af9135c01565e0cd
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1669202696628
+modified: 1671134944962
 created: 1669161682900
 url: localhost:8080/venda
 name: POST - Venda
@@ -13,12 +13,7 @@ body:
     {
     	"cliente" : {
     		"id" : ""
-    	},
-    	"itens" : [
-    		{
-    			"id" : ""
-    		}
-    	]
+    	}
     }
 parameters: []
 headers:

@@ -1,10 +1,10 @@
 _id: req_939e91e6f7e24b13a372365fa91eddf2
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1669202772245
+modified: 1671134977488
 created: 1669161421217
-url: localhost:8080/item
-name: POST - Item
+url: localhost:8080/itemArmacao
+name: POST - ItemArmacao
 description: ""
 method: POST
 body:
@@ -14,11 +14,7 @@ body:
     	"armacao" : {
     		"id" : ""
     	},
-    	"qtdArmacao" : ,
-    	"lente" : {
-    		"id" : ""
-    	},
-    	"qtdLente" : 
+    	"quantidade" : 
     }
 parameters: []
 headers:

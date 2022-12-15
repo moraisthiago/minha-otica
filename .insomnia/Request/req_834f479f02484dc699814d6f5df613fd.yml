@@ -1,10 +1,10 @@
 _id: req_834f479f02484dc699814d6f5df613fd
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1669161410794
+modified: 1671130020363
 created: 1669161404291
-url: localhost:8080/item/{id}
-name: GET BY ID - Item
+url: localhost:8080/itemmArmacao/{id}
+name: GET BY ID - ItemArmacao
 description: ""
 method: GET
 body: {}

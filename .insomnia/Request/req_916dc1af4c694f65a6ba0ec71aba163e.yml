@@ -1,17 +1,17 @@
-_id: req_bdc8514f18994226bd637be39ad4dfc9
+_id: req_916dc1af4c694f65a6ba0ec71aba163e
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1669201596426
-created: 1669201588458
-url: localhost:8080/vendaLente/{id}
-name: GET BY ID - VendaLente
+modified: 1671129974119
+created: 1671129553502
+url: localhost:8080/itemLente/{id}
+name: GET BY ID - ItemLente
 description: ""
 method: GET
 body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1669181593003.5
+metaSortKey: -1667966272615.3438
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
