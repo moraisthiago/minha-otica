@@ -16,41 +16,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpb.minhaotica.dto.ItemDTO;
-import br.edu.ifpb.minhaotica.model.Item;
-import br.edu.ifpb.minhaotica.service.ItemService;
+import br.edu.ifpb.minhaotica.dto.ItemLenteDTO;
+import br.edu.ifpb.minhaotica.model.ItemLente;
+import br.edu.ifpb.minhaotica.service.ItemLenteService;
 
 @RestController
-@RequestMapping("/item")
-public class ItemController {
+@RequestMapping("/itemLente")
+public class ItemLenteController {
 
     @Autowired
-    private ItemService _itemService;
+    private ItemLenteService _itemLenteService;
 
     @GetMapping
-    private List<Item> findAll() {
-        return _itemService.findAll();
+    public List<ItemLente> findAll() {
+        return _itemLenteService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Item> findById(@PathVariable UUID id) {
-        return _itemService.findById(id);
+    public ResponseEntity<ItemLente> findById(@PathVariable UUID id) {
+        return _itemLenteService.findById(id);
+
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Item> save(@RequestBody ItemDTO itemDTO) {
-        return _itemService.save(itemDTO);
+    public ItemLente save(@RequestBody ItemLenteDTO itemLenteDTO) {
+        return _itemLenteService.save(itemLenteDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Item> update(@PathVariable UUID id, @RequestBody ItemDTO newItemDTO) {
-        return _itemService.update(id, newItemDTO);
+    public ResponseEntity<ItemLente> update(@PathVariable UUID id, @RequestBody ItemLenteDTO itemLenteDTO) {
+        return _itemLenteService.update(id, itemLenteDTO);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable UUID id) {
-        return _itemService.delete(id);
+        return _itemLenteService.delete(id);
     }
-
 }
