@@ -1,5 +1,6 @@
 package br.edu.ifpb.minhaotica.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,6 +36,11 @@ public class ConsultaController {
     @GetMapping("/{id}")
     public ResponseEntity<Consulta> findById(@PathVariable UUID id) {
         return _consultaService.findById(id);
+    }
+
+    @GetMapping("{dateTime}")
+    public List<Consulta> findByDateTime(@PathVariable LocalDateTime dateTime) {
+        return _consultaService.findByDateTime(dateTime);
     }
 
     @PostMapping
