@@ -1,0 +1,21 @@
+_id: req_834f479f02484dc699814d6f5df613fd
+type: Request
+parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
+modified: 1671130020363
+created: 1669161404291
+url: localhost:8080/itemmArmacao/{id}
+name: GET BY ID - ItemArmacao
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1668554333481
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

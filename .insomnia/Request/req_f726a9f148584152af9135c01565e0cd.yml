@@ -1,31 +1,26 @@
-_id: req_fac7c71bedc84f4cad4d5e862067bbf0
+_id: req_f726a9f148584152af9135c01565e0cd
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1671135032324
-created: 1666790534636
-url: localhost:8080/lente
-name: POST - Lente
+modified: 1671189210924
+created: 1669161682900
+url: localhost:8080/venda
+name: POST - Venda
 description: ""
 method: POST
 body:
   mimeType: application/json
   text: |-
     {
-    	"type" : "",
-    	"value" : ,
-    	"laboratory": ""
+    	"cliente" : {
+    		"id" : ""
+    	}
     }
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
-authentication:
-  type: basic
-  useISO88591: false
-  disabled: true
-  username: admin@email.com
-  password: "12345"
-metaSortKey: -1666790070771.5
+authentication: {}
+metaSortKey: -1669161432509
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

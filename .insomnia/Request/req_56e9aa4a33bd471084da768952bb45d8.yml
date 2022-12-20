@@ -1,31 +1,22 @@
-_id: req_fac7c71bedc84f4cad4d5e862067bbf0
+_id: req_56e9aa4a33bd471084da768952bb45d8
 type: Request
 parentId: wrk_16a27c2ecfed40c7819bcfdd21998aa4
-modified: 1671135032324
-created: 1666790534636
-url: localhost:8080/lente
-name: POST - Lente
+modified: 1671158692143
+created: 1671156964528
+url: localhost:8080/consulta/?{dateTime}
+name: GET - ConsultaData
 description: ""
-method: POST
-body:
-  mimeType: application/json
-  text: |-
-    {
-    	"type" : "",
-    	"value" : ,
-    	"laboratory": ""
-    }
+method: GET
+body: {}
 parameters: []
-headers:
-  - name: Content-Type
-    value: application/json
+headers: []
 authentication:
   type: basic
   useISO88591: false
   disabled: true
   username: admin@email.com
   password: "12345"
-metaSortKey: -1666790070771.5
+metaSortKey: -1666790070746.5
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
