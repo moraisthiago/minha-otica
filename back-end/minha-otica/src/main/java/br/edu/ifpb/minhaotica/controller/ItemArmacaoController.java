@@ -1,6 +1,5 @@
 package br.edu.ifpb.minhaotica.controller;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,45 +16,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpb.minhaotica.dto.ConsultaDTO;
-import br.edu.ifpb.minhaotica.model.Consulta;
-import br.edu.ifpb.minhaotica.service.ConsultaService;
+import br.edu.ifpb.minhaotica.dto.ItemArmacaoDTO;
+import br.edu.ifpb.minhaotica.model.ItemArmacao;
+import br.edu.ifpb.minhaotica.service.ItemArmacaoService;
 
 @RestController
-@RequestMapping("/consulta")
-public class ConsultaController {
+@RequestMapping("/itemArmacao")
+public class ItemArmacaoController {
 
     @Autowired
-    private ConsultaService _consultaService;
+    private ItemArmacaoService _itemArmacaoService;
 
     @GetMapping
-    private List<Consulta> findAll() {
-        return _consultaService.findAll();
+    public List<ItemArmacao> findAll() {
+        return _itemArmacaoService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Consulta> findById(@PathVariable UUID id) {
-        return _consultaService.findById(id);
-    }
+    public ResponseEntity<ItemArmacao> findById(@PathVariable UUID id) {
+        return _itemArmacaoService.findById(id);
 
-    @GetMapping("{dateTime}")
-    public List<Consulta> findByDateTime(@PathVariable LocalDateTime dateTime) {
-        return _consultaService.findByDateTime(dateTime);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Consulta> save(@RequestBody ConsultaDTO ConsultaDTO) {
-        return _consultaService.save(ConsultaDTO);
+    public ItemArmacao save(@RequestBody ItemArmacaoDTO itemArmacaoDTO) {
+        return _itemArmacaoService.save(itemArmacaoDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Consulta> update(@PathVariable UUID id, @RequestBody ConsultaDTO newConsultaDTO) {
-        return _consultaService.update(id, newConsultaDTO);
+    public ResponseEntity<ItemArmacao> update(@PathVariable UUID id, @RequestBody ItemArmacaoDTO itemArmacaoDTO) {
+        return _itemArmacaoService.update(id, itemArmacaoDTO);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable UUID id) {
-        return _consultaService.delete(id);
+        return _itemArmacaoService.delete(id);
     }
 }

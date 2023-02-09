@@ -1,6 +1,5 @@
 package br.edu.ifpb.minhaotica.controller;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,45 +16,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpb.minhaotica.dto.ConsultaDTO;
-import br.edu.ifpb.minhaotica.model.Consulta;
-import br.edu.ifpb.minhaotica.service.ConsultaService;
+import br.edu.ifpb.minhaotica.dto.VendaDTO;
+import br.edu.ifpb.minhaotica.model.Venda;
+import br.edu.ifpb.minhaotica.service.VendaService;
 
 @RestController
-@RequestMapping("/consulta")
-public class ConsultaController {
+@RequestMapping("/venda")
+public class VendaController {
 
     @Autowired
-    private ConsultaService _consultaService;
+    private VendaService _vendaService;
 
     @GetMapping
-    private List<Consulta> findAll() {
-        return _consultaService.findAll();
+    private List<Venda> findAll() {
+        return _vendaService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Consulta> findById(@PathVariable UUID id) {
-        return _consultaService.findById(id);
-    }
-
-    @GetMapping("{dateTime}")
-    public List<Consulta> findByDateTime(@PathVariable LocalDateTime dateTime) {
-        return _consultaService.findByDateTime(dateTime);
+    public ResponseEntity<Venda> findById(@PathVariable UUID id) {
+        return _vendaService.findById(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Consulta> save(@RequestBody ConsultaDTO ConsultaDTO) {
-        return _consultaService.save(ConsultaDTO);
+    public ResponseEntity<Venda> save(@RequestBody VendaDTO vendaDTO) {
+        return _vendaService.save(vendaDTO);
+    }
+
+    @PostMapping("/{idItem}/{idVenda}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<Venda> saveItemVenda(@PathVariable UUID idItem, @PathVariable UUID idVenda) {
+        return _vendaService.saveItemVenda(idItem, idVenda);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Consulta> update(@PathVariable UUID id, @RequestBody ConsultaDTO newConsultaDTO) {
-        return _consultaService.update(id, newConsultaDTO);
+    public ResponseEntity<Venda> update(@PathVariable UUID id, @RequestBody VendaDTO newVendaDTO) {
+        return _vendaService.update(id, newVendaDTO);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable UUID id) {
-        return _consultaService.delete(id);
+        return _vendaService.delete(id);
     }
 }

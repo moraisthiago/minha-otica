@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.edu.ifpb.minhaotica.model.Role;
+import br.edu.ifpb.minhaotica.model.ItemLente;
 
-public interface RoleRepository extends JpaRepository<Role, UUID> {
+public interface ItemLenteRepository extends JpaRepository<ItemLente, UUID> {
 
 }

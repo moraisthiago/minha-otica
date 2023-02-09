@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -35,6 +36,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "tb_user")
 @Inheritance(strategy = InheritanceType.JOINED)
+@EqualsAndHashCode(callSuper = false)
 public class User extends Pessoa implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

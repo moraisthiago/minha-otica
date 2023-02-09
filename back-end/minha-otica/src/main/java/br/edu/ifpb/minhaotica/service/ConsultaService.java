@@ -1,5 +1,6 @@
 package br.edu.ifpb.minhaotica.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -37,6 +38,10 @@ public class ConsultaService {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    public List<Consulta> findByDateTime(LocalDateTime dateTime) {
+        return _consultaRepository.findByDateTime(dateTime);
     }
 
     public ResponseEntity<Consulta> save(ConsultaDTO consultaDTO) {
